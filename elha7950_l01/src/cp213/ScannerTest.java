@@ -3,121 +3,121 @@ package cp213;
 import java.util.Scanner;
 
 /**
- * Class to demonstrate the use of Scanner with a keyboard and File objects.
+ * Default Constructor Scanner Test
  *
  * @author Mohammad El-Hassan
  * @version 2024-09-16
  */
 public class ScannerTest {
 
-	/**
-	 * Count lines in the scanned file.
-	 *
-	 * @param source Scanner to process
-	 * @return number of lines in scanned file
-	 */
-	public static int countLines(final Scanner source) {
+    /**
+     * Test the Scanner
+     *
+     * @param source Scanner
+     * @return number of lines in scanned file
+     */
+    public static int countLines(final Scanner source) {
 
-		// Define the variable
+	// Define the variable
 
-		int count = 0;
+	int count = 0;
 
-		// While there is a next line
+	// While there is a next line
 
-		while (source.hasNextLine()) {
+	while (source.hasNextLine()) {
 
-			// Add one to the count
+	    // Add one to the count
 
-			count += 1;
+	    count += 1;
 
-			// Move to the next line
+	    // Move to the next line
 
-			source.nextLine();
-		}
-
-		// Return
-
-		return count;
+	    source.nextLine();
 	}
 
-	/**
-	 * Count tokens in the scanned object.
-	 *
-	 * @param source Scanner to process
-	 * @return number of tokens in scanned object
-	 */
-	public static int countTokens(final Scanner source) {
+	// Return
 
-		// Define the variable
+	return count;
+    }
 
-		int tokens = 0;
+    /**
+     * Count tokens in the scanned object.
+     *
+     * @param source Scanner
+     * @return number of tokens in scanned object
+     */
+    public static int countTokens(final Scanner source) {
 
-		// While there is a next token
+	// Define the variable
 
-		while (source.hasNext()) {
+	int tokens = 0;
 
-			// Add one to the count
+	// While there is a next token
 
-			tokens += 1;
+	while (source.hasNext()) {
 
-			// Move to the next token
+	    // Add one to the count
 
-			source.next();
-		}
+	    tokens += 1;
 
-		// Return
+	    // Move to the next token
 
-		return tokens;
+	    source.next();
 	}
 
-	/**
-	 * Ask for and total integers from the keyboard.
-	 *
-	 * @param source Scanner to process
-	 * @return total of positive integers entered from keyboard
-	 */
-	public static int readNumbers(final Scanner keyboard) {
+	// Return
 
-		// Define the variable
+	return tokens;
+    }
 
-		int total = 0;
+    /**
+     * Ask for and total integers from the keyboard.
+     *
+     * @param keyboard Scanner
+     * @return total of positive integers entered from keyboard
+     */
+    public static int readNumbers(final Scanner keyboard) {
 
-		// While the input is not 'q'
+	// Define the variable
 
-		while (!keyboard.hasNext("q")) {
+	int total = 0;
 
-			// If the input is a number
+	// While the input is not 'q'
 
-			if (keyboard.hasNextInt()) {
+	while (!keyboard.hasNext("q")) {
 
-				// Add to the total
+	    // If the input is a number
 
-				total = total + keyboard.nextInt();
+	    if (keyboard.hasNextInt()) {
 
-			} else {
+		// Add to the total
 
-				// Define the line to get correct output
+		total = total + keyboard.nextInt();
 
-				String line = keyboard.nextLine();
+	    } else {
 
-				// If the line is not blank
+		// Define the line to get correct output
 
-				if (!line.isBlank()) {
+		String line = keyboard.nextLine();
 
-					// Format the string
+		// If the line is not blank
 
-					String sf1 = String.format("'%s' is not an integer or 'q'.", line);
+		if (!line.isBlank()) {
 
-					// Output the string
+		    // Format the string
 
-					System.out.println(sf1);
-				}
-			}
+		    String sf1 = String.format("'%s' is not an integer or 'q'.", line);
+
+		    // Output the string
+
+		    System.out.println(sf1);
 		}
-
-		// Return
-
-		return total;
+	    }
 	}
+
+	// Return
+
+	return total;
+    }
 
 }
