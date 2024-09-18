@@ -5,12 +5,18 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 /**
- * Default Constructor Main file for the program.
+ * Main file for the program
  *
  * @author Mohammad El-Hassan
  * @version 2024-09-17
  */
 public class Main {
+
+    /**
+     * Default constructor for the main program.
+     */
+    public Main() {
+    }
 
     /**
      * Testing the Scanner
