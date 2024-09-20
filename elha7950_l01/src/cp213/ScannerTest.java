@@ -16,9 +16,9 @@ public class ScannerTest {
     }
 
     /**
-     * Test the Scanner
+     * Count the lines in the file
      *
-     * @param source Scanner
+     * @param source Scanner for the file
      * @return number of lines in scanned file
      */
     public static int countLines(final Scanner source) {
