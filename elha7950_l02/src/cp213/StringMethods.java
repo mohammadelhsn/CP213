@@ -27,26 +27,41 @@ public class StringMethods {
      * @return Number of vowels in string.
      */
     public static int vowelCount(final String string) {
+
+        // Initialize a counter to keep track of the number of vowels.
         int count = 0;
+
+        // If the string input is empty, set count to 0.
+        // Else: Iterate through each word and letter in the array.
 
         if (string.length() == 0) {
             count = 0;
         } else {
+
+            // Split the sentence string into words using space as a delimiter.
             String[] words = string.split(" ");
 
+            // Iterate through each word in the array
             for (int i = 0; i < words.length; i++) {
+
+                // Split each word into individual characters.
                 String[] word = words[i].split("");
+
+                // Iterate through each character in the word.
                 for (int j = 0; j < word.length; j++) {
+
+                    // Get the current character.
                     String letter = word[j];
 
+                    // Check if the character is a vowel, if it is add one to the counter.
                     if (VOWELS.indexOf(letter) != -1) {
                         count += 1;
                     }
                 }
             }
-
         }
 
+        // Return.
         return count;
     }
 
@@ -58,8 +73,6 @@ public class StringMethods {
      */
     public static int digitCount(final String string) {
         int count = 0;
-
-        // your code here
 
         if (string.length() == 0) {
             count = 0;
