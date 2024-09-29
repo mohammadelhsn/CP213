@@ -17,9 +17,17 @@ public class SerialNumber {
      */
     public static boolean allDigits(final String str) {
 
-        // your code here
+        char[] characters = str.toCharArray();
+        boolean isAllDigits = true;
 
-        return false;
+        for (char c : characters) {
+            if (!Character.isDigit(c)) {
+                isAllDigits = false;
+                break;
+            }
+        }
+
+        return isAllDigits;
     }
 
     /**
@@ -30,10 +38,38 @@ public class SerialNumber {
      * @return true if the serial number is valid in form, false otherwise.
      */
     public static boolean validSn(final String sn) {
+        boolean isValid = false;
+        String part1_expected = "SN/";
+        String part3_expected = "-";
+        boolean part1_valid = false;
+        boolean part2_valid = false;
+        boolean part3_valid = false;
+        boolean part4_valid = false;
 
-        // your code here
+        if (sn.length() != 11) {
+            isValid = false;
+        } else {
+            String part1 = sn.substring(0, 3);
+            String part2 = sn.substring(3, 7);
+            String part3 = sn.substring(7, 8);
+            String part4 = sn.substring(8);
+            if (part1.equalsIgnoreCase(part1_expected)) {
+                part1_valid = true;
+            }
+            if (SerialNumber.allDigits(part2)) {
+                part2_valid = true;
+            }
+            if (part3.equals(part3_expected)) {
+                part3_valid = true;
+            }
+            if (SerialNumber.allDigits(part4)) {
+                part4_valid = true;
+            }
 
-        return false;
+            isValid = part1_valid && part2_valid && part3_valid && part4_valid;
+        }
+
+        return isValid;
     }
 
     /**
@@ -48,6 +84,18 @@ public class SerialNumber {
     public static void validSnFile(final Scanner fileIn, final PrintStream goodSns, final PrintStream badSns) {
 
         // your code here
+
+        while (fileIn.hasNextLine()) {
+            String currentLine = fileIn.nextLine();
+            if (SerialNumber.validSn(currentLine)) {
+                goodSns.append(currentLine + "\n");
+            } else {
+                badSns.append(currentLine + "\n");
+            }
+        }
+
+        goodSns.flush();
+        badSns.flush();
 
         return;
     }

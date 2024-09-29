@@ -206,6 +206,26 @@ public class A01Main {
 			System.out.println(String.format("validSn(\"%s\")\n  {%b}: %b", string, expected, actual));
 		}
 		System.out.println();
+
+		/*
+		 * Scanner fileIn = new Scanner(
+		 * new File(
+		 * "C:\\Users\\Techm\\eclipse\\ws\\cp213\\elha7950_a01\\src\\cp213\\Sns.txt"));
+		 * PrintStream goodSns = new PrintStream(new FileOutputStream(
+		 * "C:\\Users\\Techm\\eclipse\\ws\\cp213\\elha7950_a01\\src\\cp213\\goodSns.txt"
+		 * ));
+		 * PrintStream badSns = new PrintStream(
+		 * new FileOutputStream(
+		 * "C:\\Users\\Techm\\eclipse\\ws\\cp213\\elha7950_a01\\src\\cp213\\badSns.txt")
+		 * );
+		 * 
+		 * SerialNumber.validSnFile(fileIn, goodSns, badSns);
+		 * 
+		 * fileIn.close();
+		 * goodSns.close();
+		 * badSns.close();
+		 */
+
 	}
 
 	/**

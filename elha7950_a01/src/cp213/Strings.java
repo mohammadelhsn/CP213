@@ -1,5 +1,7 @@
 package cp213;
 
+import javax.xml.stream.events.Characters;
+
 /**
  * @author Your name and id here
  * @version 2024-09-01
@@ -42,9 +44,19 @@ public class Strings {
      */
     public static boolean isValid(final String name) {
 
-        // your code here
+        boolean isValid = false;
 
-        return false;
+        if (name == "_") {
+            isValid = false;
+        } else if (name.isBlank()) {
+            isValid = false;
+        } else if (!Character.isLetter(name.charAt(0)) && name.charAt(0) != '_') {
+            isValid = false;
+        } else {
+            isValid = true;
+        }
+
+        return isValid;
     }
 
     /**
@@ -66,11 +78,28 @@ public class Strings {
 
         StringBuilder sb = new StringBuilder();
         char firstLetter = word.charAt(0);
+        boolean capitalize = false;
+        if (Character.isUpperCase(firstLetter)) {
+            capitalize = true;
+        }
 
         if (VOWELS.indexOf(firstLetter) != -1) {
             sb.append(word);
             sb.append("way");
         } else {
+            if (capitalize) {
+                sb.append(firstLetter);
+                sb.append(word.substring(1, 2).toUpperCase());
+                sb.append(word.substring(2));
+                sb.append(Character.toLowerCase(firstLetter));
+                sb.append("ay");
+                sb.deleteCharAt(0);
+            } else {
+                sb.append(word);
+                sb.append(firstLetter);
+                sb.append("ay");
+                sb.deleteCharAt(0);
+            }
 
         }
 
