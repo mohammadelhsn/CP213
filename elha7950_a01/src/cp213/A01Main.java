@@ -1,5 +1,16 @@
 package cp213;
 
+/*
+---------------------------------------------
+!! TEST CODE FOR validSnFile !!
+---------------------------------------------
+* import java.io.File;
+* import java.io.FileNotFoundException;
+* import java.util.Scanner;
+* import java.io.FileOutputStream;
+* import java.io.PrintStream; 
+*/
+
 /**
  * Sample tests for the Assignment 1 class methods. Not comprehensive - add your
  * own testing.
@@ -208,6 +219,10 @@ public class A01Main {
 		System.out.println();
 
 		/*
+		 * ---------------------------------------------
+		 * !! TEST CODE FOR validSnFile !!
+		 * ---------------------------------------------
+		 * try {
 		 * Scanner fileIn = new Scanner(
 		 * new File(
 		 * "C:\\Users\\Techm\\eclipse\\ws\\cp213\\elha7950_a01\\src\\cp213\\Sns.txt"));
@@ -224,8 +239,12 @@ public class A01Main {
 		 * fileIn.close();
 		 * goodSns.close();
 		 * badSns.close();
+		 * 
+		 * } catch (FileNotFoundException e) {
+		 * // TODO Auto-generated catch block
+		 * e.printStackTrace();
+		 * }
 		 */
-
 	}
 
 	/**
