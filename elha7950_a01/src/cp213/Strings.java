@@ -1,7 +1,5 @@
 package cp213;
 
-import javax.xml.stream.events.Characters;
-
 /**
  * @author Your name and id here
  * @version 2024-09-01
