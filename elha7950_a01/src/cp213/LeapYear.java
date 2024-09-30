@@ -1,10 +1,18 @@
 package cp213;
 
 /**
- * @author Your name and id here
- * @version 2024-09-01
+ * LeapYear class
+ *
+ * @author Mohammad El-Hassan, 169067950, elha7950@mylaurier.ca, @mohammadelhsn
+ * @version 2024-09-29
  */
 public class LeapYear {
+    /**
+     * Default Constructor for the LeapYear class
+     */
+    public LeapYear() {
+
+    }
 
     /**
      * Determines whether or not a year is a leap year.
@@ -24,18 +32,24 @@ public class LeapYear {
      * @return true if year is a leap year, false otherwise.
      */
     public static boolean isLeapYear(final int year) {
-
-        boolean result = false;
-
-        if ((year % 100) == 0) {
-            if ((year % 400) == 0) {
-                result = true;
-            }
-        } else if ((year % 4) == 0) {
-            result = true;
-        }
-
-        return result;
+	// Initialize the result as `false`. We assume the year is not a leap year
+	// initially.
+	boolean result = false;
+	/*
+	 * If the year is divisible by 100 (century year) ad also divisible by 400, it
+	 * is a leap year If the year is not a century year, check if it is divisible by
+	 * 4 Else is not needed because it is assumed false unless it satisfies the
+	 * conditions.
+	 */
+	if ((year % 100) == 0) {
+	    if ((year % 400) == 0) {
+		result = true;
+	    }
+	} else if ((year % 4) == 0) {
+	    result = true;
+	}
+	// Return
+	return result;
     }
 
 }
