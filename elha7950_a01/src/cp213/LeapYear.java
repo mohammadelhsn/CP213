@@ -32,24 +32,24 @@ public class LeapYear {
      * @return true if year is a leap year, false otherwise.
      */
     public static boolean isLeapYear(final int year) {
-	// Initialize the result as `false`. We assume the year is not a leap year
-	// initially.
-	boolean result = false;
-	/*
-	 * If the year is divisible by 100 (century year) ad also divisible by 400, it
-	 * is a leap year If the year is not a century year, check if it is divisible by
-	 * 4 Else is not needed because it is assumed false unless it satisfies the
-	 * conditions.
-	 */
-	if ((year % 100) == 0) {
-	    if ((year % 400) == 0) {
-		result = true;
-	    }
-	} else if ((year % 4) == 0) {
-	    result = true;
-	}
-	// Return
-	return result;
+        // Initialize the result as `false`. We assume the year is not a leap year
+        // initially.
+        boolean result = false;
+        /*
+         * If the year is divisible by 100 (century year) ad also divisible by 400, it
+         * is a leap year If the year is not a century year, check if it is divisible by
+         * 4 Else is not needed because it is assumed false unless it satisfies the
+         * conditions.
+         */
+        if ((year % 100) == 0) {
+            if ((year % 400) == 0) {
+                result = true;
+            }
+        } else if ((year % 4) == 0) {
+            result = true;
+        }
+        // Return
+        return result;
     }
 
 }
