@@ -5,8 +5,8 @@ import java.time.LocalDate;
 /**
  * Student class definition.
  *
- * @author your name here
- * @version 2022-01-17
+ * @author Mohammad El-Hassan, 169067950, elha7950@mylaurier.ca, @mohammadelhsn
+ * @version 2024-09-30
  */
 public class Student implements Comparable<Student> {
 
@@ -61,14 +61,24 @@ public class Student implements Comparable<Student> {
     }
 
     // getters and setters defined here
-    public void setId(int id) {
+    public Student setId(int id) {
         this.id = id;
-        return;
+        return this;
     }
 
-    public void setBirthDate(LocalDate birthDate) {
+    public Student setBirthDate(LocalDate birthDate) {
         this.birthDate = birthDate;
-        return;
+        return this;
+    }
+
+    public Student setForename(String forename) {
+        this.forename = forename;
+        return this;
+    }
+
+    public Student setSurname(String surname) {
+        this.surname = surname;
+        return this;
     }
 
     public int getId() {
@@ -79,4 +89,11 @@ public class Student implements Comparable<Student> {
         return this.birthDate;
     }
 
+    public String getSurname() {
+        return this.surname;
+    }
+
+    public String getForename() {
+        return this.forename;
+    }
 }

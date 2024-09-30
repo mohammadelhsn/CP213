@@ -42,9 +42,7 @@ public class LeapYear {
          * conditions.
          */
         if ((year % 100) == 0) {
-            if ((year % 400) == 0) {
-                result = true;
-            }
+            result = (year % 400) == 0;
         } else if ((year % 4) == 0) {
             result = true;
         }
