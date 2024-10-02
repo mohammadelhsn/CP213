@@ -25,11 +25,16 @@ public class Student implements Comparable<Student> {
      * @param birthDate birthDate in 'YYYY-MM-DD' format
      */
     public Student(int id, String surname, String forename, LocalDate birthDate) {
-        this.id = id;
-        this.surname = surname;
-        this.forename = forename;
-        this.birthDate = birthDate;
-        return;
+	// Assign the passed 'id' value to the current object's id field
+	this.id = id;
+	// Assign the passed 'surname' value to the current object's surname field
+	this.surname = surname;
+	// Assign the passed 'forename' value to the current object's forename field
+	this.forename = forename;
+	// Assign the passed 'birthDate' value to the current object's birthDate field
+	this.birthDate = birthDate;
+	// Return
+	return;
     }
 
     /*
@@ -39,11 +44,14 @@ public class Student implements Comparable<Student> {
      */
     @Override
     public String toString() {
-        String string = "";
-
-        // your code here
-
-        return string;
+	// Initialize an empty string to accumulate the object's information
+	String string = "";
+	// Format and append the object's surname, forename, id and birthDate to the
+	// string
+	// Using String.format() for clean alignment and presentation
+	string += String.format("Name:      %s, %s\nID:        %d\nBirthdate: %s", surname, forename, id, birthDate);
+	// Return
+	return string;
     }
 
     /*
@@ -53,47 +61,110 @@ public class Student implements Comparable<Student> {
      */
     @Override
     public int compareTo(final Student target) {
-        int result = 0;
-
-        // your code here
-
-        return result;
+	// Initialize result to store the comparison outcome
+	int result = 0;
+	// First, compare the surnames lexicographically
+	result = surname.compareTo(target.getSurname());
+	// If the first names are the same, compare the forenames
+	if (result == 0) {
+	    result = forename.compareTo(target.getForename());
+	    // If both the surname and forenames are the same, compare the IDs numerically
+	    if (result == 0) {
+		result = Integer.compare(id, target.getId());
+	    }
+	}
+	// Return the result (-1, 0, or 1)
+	return result;
     }
 
-    // getters and setters defined here
+    /*
+     * GETTERS AND SETTERS DEFINED HERE
+     *
+     * Ideally, for Setters you would want to return `this` to allow for chaining It
+     * doesn't make much sense to do the same for getters because you are returning
+     * data.
+     *
+     * Usage example: Student theGoat = new Student(123456, "Brown", "David",
+     * LocalDate.parse("1962-10-25"));
+     * System.out.println(theGoat.setId(434343).getId()); // should output 434343
+     */
+    /**
+     * Setter for the ID of a student.
+     *
+     * @param id The ID of the student
+     * @return Student for chaining
+     */
     public Student setId(int id) {
-        this.id = id;
-        return this;
+	this.id = id;
+	return this;
     }
 
+    /**
+     * Setter for the birth date of a student.
+     *
+     * @param birthDate The birthDate of the student
+     * @return Student for chaining
+     */
     public Student setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
-        return this;
+	this.birthDate = birthDate;
+	return this;
     }
 
+    /**
+     * Setter for the forename of a student.
+     *
+     * @param forename The forename of a student
+     * @return Student for chaining
+     */
     public Student setForename(String forename) {
-        this.forename = forename;
-        return this;
+	this.forename = forename;
+	return this;
     }
 
+    /**
+     * Setter for the Surname of a student.
+     *
+     * @param surname The surname of a student
+     * @return Student for chaining
+     */
     public Student setSurname(String surname) {
-        this.surname = surname;
-        return this;
+	this.surname = surname;
+	return this;
     }
 
+    /**
+     * Getter for the ID
+     *
+     * @return int The ID of the student
+     */
     public int getId() {
-        return this.id;
+	return this.id;
     }
 
+    /**
+     * Getter for the Birth Date
+     *
+     * @return LocalDate The student's birth date
+     */
     public LocalDate getBirthDate() {
-        return this.birthDate;
+	return this.birthDate;
     }
 
+    /**
+     * Getter for the Surname
+     *
+     * @return String The student's surname
+     */
     public String getSurname() {
-        return this.surname;
+	return this.surname;
     }
 
+    /**
+     * Getter for the Forename
+     *
+     * @return String The student's forename
+     */
     public String getForename() {
-        return this.forename;
+	return this.forename;
     }
 }
