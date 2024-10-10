@@ -49,7 +49,6 @@ public class Main {
 		System.out.println(student);
 		System.out.println(line);
 		System.out.println("Test compareTo");
-
 		// create new Students - call comparisons here
 		String firstName = "Mohammad";
 		String lastName = "El-Hassan";
