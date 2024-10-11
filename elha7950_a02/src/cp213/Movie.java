@@ -68,24 +68,34 @@ public class Movie implements Comparable<Movie> {
      * @param genre    Number representing Movie genre.
      */
     public Movie(final String title, final int year, final String director, final double rating, final int genre) {
+        // Check if the year is less than or equal to the first allowed year
+        // (FIRST_YEAR).
         if (year <= FIRST_YEAR) {
+            // Print an error message and terminate the program if the year is invalid.
             System.out.println(String.format("Movie year must be >= %d", FIRST_YEAR));
             System.exit(-1);
         }
+        // Check if the rating is outside the valid range (MIN_RATING to MAX_RATING).
         if (rating < MIN_RATING || rating > MAX_RATING) {
-            System.out.println(String.format("Rating must be between %f and %f", MIN_RATING, MAX_RATING));
+            // Print an error message and terminate the program if the rating is invalid.
+            System.out.println(String.format("Rating must be between %.1f and %.1f", MIN_RATING, MAX_RATING));
             System.exit(-1);
         }
+        // Check if the genre value is outside the valid index range of the GENRES
+        // array.
         if (genre < 0 || genre > GENRES.length) {
+            // Print an error message and terminate the program if the genre is invalid.
             System.out.println("Genre must be a valid index in the GENRES array");
             System.exit(-1);
         }
-
+        // Assign the validated values to the instance variables of the Movie object.
         this.title = title;
         this.year = year;
         this.director = director;
         this.rating = rating;
         this.genre = genre;
+        // End the method (return is optional here, as this is likely a constructor or
+        // void method).
         return;
     }
 
@@ -105,11 +115,19 @@ public class Movie implements Comparable<Movie> {
      */
     @Override
     public int compareTo(final Movie target) {
+        // Initialize the result to 0, which will hold the comparison result.
         int result = 0;
+        // Compare this movie's title with the target movie's title.
+        // The compareTo method of String returns a negative number, zero, or a positive
+        // number
+        // based on lexicographic ordering.
         result = title.compareTo(target.getTitle());
+        // If the titles are the same (result == 0), then compare the release years.
         if (result == 0) {
+            // Use Integer.compare to compare the release years.
             result = Integer.compare(year, target.getYear());
         }
+        // Return the comparison result.
         return result;
     }
 
@@ -184,7 +202,7 @@ public class Movie implements Comparable<Movie> {
      */
     public void setRating(final double rating) {
         if (rating < MIN_RATING || rating > MAX_RATING) {
-            System.out.println(String.format("Rating must be between %f and %f", MIN_RATING, MAX_RATING));
+            System.out.println(String.format("Rating must be between %.1f and %.1f", MIN_RATING, MAX_RATING));
             System.exit(-1);
         }
         this.rating = rating;
@@ -221,9 +239,10 @@ public class Movie implements Comparable<Movie> {
      * @param ps Output PrintStream.
      */
     public void write(final PrintStream ps) {
-        String output = String.format("%s|%d|%s|%f|%d", this.getTitle(), this.getYear(), this.getDirector(),
+        String output = String.format("%s|%d|%s|%.1f|%d", this.getTitle(), this.getYear(), this.getDirector(),
                 this.getRating(), this.getGenre());
         ps.println(output);
+        ps.flush();
         return;
     }
 

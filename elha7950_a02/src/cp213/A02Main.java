@@ -68,6 +68,17 @@ public class A02Main {
 		movie = MovieUtilities.getMovie(keyboard);
 		System.out.println();
 		System.out.println(movie);
+		// try {
+		// PrintStream ps = new PrintStream(
+		// new
+		// FileOutputStream("C:\\Users\\Techm\\eclipse\\ws\\cp213\\elha7950_a02\\movies.txt",
+		// true));
+		// movie.write(ps);
+		// ps.close();
+		// } catch (FileNotFoundException e) {
+		// ! TODO Auto-generated catch block
+		// e.printStackTrace();
+		// }
 		System.out.println(LINE);
 		System.out.println("readFood from string");
 		String line = "Dark City|1998|Alex Proyas|7.8|0";
